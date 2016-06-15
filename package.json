@@ -1,0 +1,25 @@
+{
+  "name": "Ng2App",
+  "version": "1.0.0",
+  "description": "A prototype of the new rewrite of FHF collections module.",
+  "main": "index.html",
+  "scripts": {
+    "start": "tsc && concurrently \"npm run tsc:w\" \"npm run lite\" ",
+    "lite": "lite-server",
+    "postinstall": "typings install",
+    "tsc": "tsc",
+    "tsc:w": "tsc -w",
+    "test": "jasmine",
+    "typings": "typings"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ronnygeo/Ng2App.git"
+  },
+  "author": "Ronny Mathew",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ronnygeo/Ng2App/issues"
+  },
+  "homepage": "https://github.com/ronnygeo/Ng2App#readme"
+}

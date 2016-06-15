@@ -1,0 +1,21 @@
+{
+  "name": "Ng2App",
+  "authors": [
+    "Ronny Mathew <ronnygeomatt@gmail.com>"
+  ],
+  "description": "The new prototype of FHF Collections module.",
+  "main": "index.html",
+  "keywords": [
+    "angular2"
+  ],
+  "license": "MIT",
+  "homepage": "github.com",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
