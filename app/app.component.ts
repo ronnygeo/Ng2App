@@ -1,14 +1,7 @@
-import {Component} from "@angular/core";
+import {Component, OnInit} from "@angular/core";
 import {Hero} from "./models/hero";
 import {HeroDetailComponent} from "./components/hero-detail.component"
-
-let HEROES: Hero[] = [
-    {id: 1, name: "Ronny"},
-    {id: 2, name: "Bob"},
-    {id: 3, name: "Alex"},
-    {id: 4, name: "Ken"},
-    {id: 5, name: "Wolverine"},
-];
+import {HeroService} from "./services/hero.service";
 
 @Component({
     selector: "my-app",
@@ -19,13 +12,24 @@ let HEROES: Hero[] = [
                 <li *ngFor="let hero of heroes" (click)="onSelect(hero)" [class.selected]="hero === selectedHero">{{hero.name}}</li>
 </ul>`,
     styles: [`.selected {background-color: yellow;}`],
-    directives: [HeroDetailComponent]
+    directives: [HeroDetailComponent],
+    providers: [HeroService]
 })
-export class AppComponent {
+export class AppComponent implements OnInit{
     title = "Heroes Ng App!";
     hero = "HEROOOOO!!!";
     selectedHero: Hero;
-    public heroes = HEROES;
+    heroes: Hero[];
+
+    constructor(private heroService: HeroService) {}
+
+    ngOnInit() {
+        this.getHeroes();
+    }
+
+    getHeroes() {
+        this.heroService.getHeroes().then(data => {this.heroes = data;});
+    }
 
     public onSelect(hero: Hero) {
         this.selectedHero = hero;
